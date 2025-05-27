@@ -1,0 +1,23 @@
+{
+  "manifest_version": 1,
+  "id": "com-tuoaccount-trello-guasti",
+  "name": "Raccolta Guasti",
+  "description": "Quando sposti in “In Manutenzione” chiede il guasto e lo salva come commento",
+  "author": "Il Tuo Nome",
+  "apiVersion": 1,
+  "homepage": "https://tuo-dominio.it/power-up/",
+  "capabilities": {
+    "card-buttons": {
+      "url": "static/client.js",
+      "options": {
+        "text": "Segnala guasto",
+        "callback": "onCardButtonClick"
+      }
+    }
+  },
+  "connectors": {
+    "iframe": {
+      "url": "https://tuo-dominio.it/power-up/static/popup.html"
+    }
+  }
+}

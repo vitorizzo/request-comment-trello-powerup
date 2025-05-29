@@ -4,36 +4,24 @@
   <meta charset="utf-8">
   <title>Get Info</title>
   <script src="https://p.trellocdn.com/power-up.min.js"></script>
-  <script>
-    // inizializzo il contesto Power-Up
-    const t = TrelloPowerUp.iframe();
-
-    document.addEventListener('DOMContentLoaded', async () => {
-      // prendo l'id della card dai parametri passati da client.js
-      const cardId = await t.arg('cardId');
-
-      const form = document.getElementById('info-form');
-      form.addEventListener('submit', async e => {
-        e.preventDefault();
-        const info = form.elements.info.value.trim();
-        if (!info) return;
-
-        // POST per aggiungere un commento alla card
-        await t.post(`/1/cards/${cardId}/actions/comments`, {
-          text: `ℹ️ Info: ${info}`
-        });
-
-        // chiudo il popup
-        t.closePopup();
-      });
-    });
-  </script>
 </head>
 <body>
-  <form id="info-form" style="padding:1em;">
-    <label for="info">Inserisci le info:</label><br>
-    <textarea id="info" name="info" rows="4" style="width:100%"></textarea><br>
+  <form id="guasto-form">
+    <!-- ... i vostri campi ... -->
     <button type="submit">Invia</button>
   </form>
+  <script>
+    const t = TrelloPowerUp.iframe();
+    document.getElementById('guasto-form')
+      .addEventListener('submit', async e => {
+        e.preventDefault();
+        const guasto = e.target.guasto.value;
+        const { id } = await t.card('id');
+        await t.post(`/1/cards/${id}/actions/comments`, {
+          text: `📌 Guasto: ${guasto}`
+        });
+        t.closePopup();
+      });
+  </script>
 </body>
 </html>

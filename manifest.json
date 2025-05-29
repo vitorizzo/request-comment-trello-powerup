@@ -3,22 +3,22 @@
   "version": "1.0.1",
   "id": "com.vitorizzo.trello.powerup.request-comment",
   "name": "Request Info",
-  "description": "Quando sposti una card in una determinata lista chiede un input e lo salva come commento all'interno di essa.",
+  "description": "Quando sposti una card in una determinata lista chiede un input e lo salva come commento.",
   "author": "Vito Rizzo",
   "apiVersion": 1,
   "homepage": "https://vitorizzo.github.io/request-comment-trello-powerup/",
+  "connectors": {
+    "iframe": {
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/"
+    }
+  },
   "capabilities": {
-    "card-buttons": [
-      {
-        "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/client.js",
+    "card-buttons": {
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/client.js",
+      "options": {
         "text": "Get Info",
         "callback": "onCardButtonClick"
       }
-    ]
-  },
-  "connectors": {
-    "iframe": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/popup.html"
     }
   }
 }

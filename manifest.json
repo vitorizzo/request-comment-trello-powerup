@@ -1,5 +1,6 @@
 {
   "manifest_version": 1,
+  "version": 1.0.1,
   "id": "com.vitorizzo.trello.powerup.request-comment",
   "name": "Request Info",
   "description": "Quando sposti una card in una determinata lista chiede un input e lo salva come commento all'interno di essa.",

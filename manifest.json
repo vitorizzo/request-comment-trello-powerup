@@ -1,26 +1,25 @@
 {
   "manifest_version": 1,
   "version": "1.0.2",
-  "appKey": "16bf6a45b27d553563aef7e509454895",
   "id": "com.vitorizzo.trello.powerup.request-comment",
   "name": "Request Info",
   "description": "Chiede un input quando sposti in “In Manutenzione” e lo salva come commento.",
   "author": "Vito Rizzo",
   "apiVersion": 1,
-  "homepage": "https://vitorizzo.github.io/request-comment-trello-powerup/",
-  
-  "capabilities": {
-    "card-buttons": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/client.js",
-      "options": { "text": "Get Info", "callback": "onCardButtonClick" }
-    }
-  },
+  "appKey": "16bf6a45b27d553563aef7e509454895",
+
   "authorization": {
+    "type": "popup",
     "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html"
   },
+
   "connectors": {
     "iframe": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/popup.html"
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/index.html"
     }
+  },
+
+  "capabilities": {
+    "card-buttons": {}
   }
 }

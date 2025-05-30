@@ -15,7 +15,7 @@
 
   "connectors": {
     "iframe": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/index.html"
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/index.html"
     }
   },
 

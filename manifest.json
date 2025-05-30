@@ -11,14 +11,5 @@
     "iframe": {
       "url": "https://vitorizzo.github.io/request-comment-trello-powerup/"
     }
-  },
-  "capabilities": {
-    "card-buttons": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/client.js",
-      "options": {
-        "text": "Get Info",
-        "callback": "onCardButtonClick"
-      }
-    }
   }
 }

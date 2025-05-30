@@ -14,7 +14,7 @@
     // prendi il context frame
     const t = TrelloPowerUp.iframe();
     // recupera l’id della card passato da onCardButtonClick
-    var cardId = t.arg('cardId');
+    const cardId = t.arg('cardId');
 
     document
       .getElementById('info-form')
@@ -25,9 +25,8 @@
 
 		// prima mi assicuro di avere i permessi:
 		try {
-			const { id } = cardId;
 			await t.request({
-				url:    `/1/cards/${id}/actions/comments`,
+				url:    `/1/cards/${cardId}/actions/comments`,
 				method: 'post',
 				body:   { text: `📌 Info: ${info}` }
 			});

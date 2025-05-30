@@ -14,6 +14,9 @@
   },
   
   "authorization": {
-    "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html"
+    "url":     "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html",
+    "success": {
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html?success=true"
+    }
   }
 }

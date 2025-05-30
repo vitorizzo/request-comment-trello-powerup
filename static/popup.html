@@ -23,9 +23,13 @@
         var info = this.info.value.trim();
         if (!info) return;
 
-        // posta il commento direttamente usando cardId
-        t.post('/1/cards/' + cardId + '/actions/comments', {
-          text: '📌 Info: ' + info
+		// prima mi assicuro di avere i permessi:
+		await t.authorize();
+		const { id } = cardId;
+		return t.request({
+			url:    `/1/cards/${id}/actions/comments`,
+			method: 'post',
+			body:   { text: `📌 Info: ${info}` }
         })
         .then(function() {
           t.closePopup();

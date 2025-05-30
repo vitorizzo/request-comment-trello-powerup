@@ -11,8 +11,10 @@
     <button type="submit">Invia</button>
   </form>
   <script>
-    // qui SI chiama iframe()
+    // prendi il context frame
     var t = TrelloPowerUp.iframe();
+    // recupera l’id della card passato da onCardButtonClick
+    var cardId = t.arg('cardId');
 
     document
       .getElementById('info-form')
@@ -21,15 +23,13 @@
         var info = this.info.value.trim();
         if (!info) return;
 
-        t.card('id')
-         .then(function(card) {
-           return t.post('/1/cards/' + card.id + '/actions/comments', {
-             text: '📌 Info: ' + info
-           });
-         })
-         .then(function() {
-           t.closePopup();
-         });
+        // posta il commento direttamente usando cardId
+        t.post('/1/cards/' + cardId + '/actions/comments', {
+          text: '📌 Info: ' + info
+        })
+        .then(function() {
+          t.closePopup();
+        });
       });
   </script>
 </body>

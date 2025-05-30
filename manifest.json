@@ -9,17 +9,12 @@
 
   "capabilities": {
     "card-buttons": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/client.js"
-    }
-  },
-  
-  "authorization": {
-    "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html"
-  },
-
-  "connectors": {
-    "iframe": {
       "url": "https://vitorizzo.github.io/request-comment-trello-powerup/index.html"
     }
+  },
+
+  // ← inserisci questo blocco:
+  "authorization": {
+    "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html"
   }
 }

@@ -7,24 +7,27 @@
 </head>
 <body>
   <form id="info-form">
-    <textarea name="info" rows="4" style="width:100%;"></textarea><br>
+    <textarea name="info" rows="4" style="width:100%"></textarea><br>
     <button type="submit">Invia</button>
   </form>
   <script>
+    // qui SI chiama iframe()
     var t = TrelloPowerUp.iframe();
-    document.getElementById('info-form')
+
+    document
+      .getElementById('info-form')
       .addEventListener('submit', function(e) {
         e.preventDefault();
-        var info = e.target.info.value.trim();
+        var info = this.info.value.trim();
         if (!info) return;
-        // recupero l'id della card e mando il commento
+
         t.card('id')
-         .then(function({ id }) {
-           return t.post('/1/cards/' + id + '/actions/comments', {
+         .then(function(card) {
+           return t.post('/1/cards/' + card.id + '/actions/comments', {
              text: '📌 Info: ' + info
            });
          })
-         .then(function(){
+         .then(function() {
            t.closePopup();
          });
       });

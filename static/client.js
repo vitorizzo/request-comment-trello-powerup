@@ -1,15 +1,20 @@
 /* global TrelloPowerUp */
-TrelloPowerUp.initialize({
+
+window.TrelloPowerUp.initialize({
   'card-buttons': function(t, opts) {
-    // creiamo un singolo pulsante "Get Info"
-    return t.card('id')
-      .then(function({ id }) {
+    return [{
+      // opzionale: punta all'icona che vuoi mostrare
+      icon: 'https://vitorizzo.github.io/request-comment-trello-powerup/static/icon.png',
+      text: 'Get Info',
+      callback: function(t, opts) {
+        // Trello setta automaticamente il contesto, non serve event
         return t.popup({
           title: 'Get Info',
-          url: t.signUrl('static/popup.html'),
-          args: { cardId: id },
+          url: 'https://vitorizzo.github.io/request-comment-trello-powerup/static/popup.html',
+          args: { cardId: opts.card.id },
           height: 200
         });
-      });
+      }
+    }];
   }
 });

@@ -18,7 +18,7 @@
 
     document
       .getElementById('info-form')
-      .addEventListener('submit', function(e) {
+      .addEventListener('submit', async function(e) {
         e.preventDefault();
         var info = this.info.value.trim();
         if (!info) return;

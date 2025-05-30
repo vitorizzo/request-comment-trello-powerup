@@ -12,10 +12,11 @@
       type: 'popup',
       scope: { read: true, write: true },
       expiration: 'never'
-    })
-    .then(function(){
+    }).then(function() {
       t.closePopup();
-    });
+    }).catch(function(err) {
+      console.error("Errore nell'autorizzazione:", err);
+	});
   </script>
 </body>
 </html>

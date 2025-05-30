@@ -12,7 +12,7 @@
   </form>
   <script>
     // prendi il context frame
-    var t = TrelloPowerUp.iframe();
+    const t = TrelloPowerUp.iframe();
     // recupera l’id della card passato da onCardButtonClick
     var cardId = t.arg('cardId');
 
@@ -20,20 +20,22 @@
       .getElementById('info-form')
       .addEventListener('submit', async function(e) {
         e.preventDefault();
-        var info = this.info.value.trim();
+        const info = this.info.value.trim();
         if (!info) return;
 
 		// prima mi assicuro di avere i permessi:
-		await t.authorize();
-		const { id } = cardId;
-		return t.request({
-			url:    `/1/cards/${id}/actions/comments`,
-			method: 'post',
-			body:   { text: `📌 Info: ${info}` }
-        })
-        .then(function() {
-          t.closePopup();
-        });
+		try {
+			const { id } = cardId;
+			await t.request({
+				url:    `/1/cards/${id}/actions/comments`,
+				method: 'post',
+				body:   { text: `📌 Info: ${info}` }
+			});
+			t.closePopup();
+			} catch (err) {
+				console.error("Errore durante la richiesta:", err);
+				alert("Errore durante l'invio del commento. Controlla i permessi.");
+			}
       });
   </script>
 </body>

@@ -1,19 +1,18 @@
 {
   "manifest_version": 1,
-  "version": "1.0.2",
+  "version": "1.0.1",
   "id": "com.vitorizzo.trello.powerup.request-comment",
   "name": "Request Info",
-  "description": "Chiede un input quando sposti in “In Manutenzione” e lo salva come commento.",
+  "description": "Quando sposti una card in una determinata lista chiede un input e lo salva come commento.",
   "author": "Vito Rizzo",
   "apiVersion": 1,
-
-  "capabilities": {
-    "card-buttons": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/index.html"
+  "homepage": "https://vitorizzo.github.io/request-comment-trello-powerup/",
+  "connectors": {
+    "iframe": {
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/"
     }
   },
-
-  // ← inserisci questo blocco:
+  
   "authorization": {
     "url": "https://vitorizzo.github.io/request-comment-trello-powerup/static/authorize.html"
   }

@@ -6,19 +6,20 @@
   <script src="https://p.trellocdn.com/power-up.min.js"></script>
 </head>
 <body>
-  <form id="guasto-form">
-    <!-- ... i vostri campi ... -->
+  <form id="info-form">
+    <textarea name="info" rows="4" style="width:100%"></textarea>
     <button type="submit">Invia</button>
   </form>
   <script>
     const t = TrelloPowerUp.iframe();
-    document.getElementById('guasto-form')
+    document.getElementById('info-form')
       .addEventListener('submit', async e => {
         e.preventDefault();
-        const guasto = e.target.guasto.value;
+        const info = e.target.info.value.trim();
+        if (!info) return;
         const { id } = await t.card('id');
         await t.post(`/1/cards/${id}/actions/comments`, {
-          text: `📌 Guasto: ${guasto}`
+          text: `📌 Info: ${info}`
         });
         t.closePopup();
       });

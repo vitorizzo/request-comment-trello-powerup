@@ -9,7 +9,7 @@
   "homepage": "https://vitorizzo.github.io/request-comment-trello-powerup/",
   "connectors": {
     "iframe": {
-      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/"
+      "url": "https://vitorizzo.github.io/request-comment-trello-powerup/index.html"
     }
   },
   "capabilities": {

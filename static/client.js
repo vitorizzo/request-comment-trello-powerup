@@ -1,21 +1,18 @@
 /* global TrelloPowerUp */
-const ICON_URL = 'https://vitorizzo.github.io/request-comment-trello-powerup/static/icon.png';
+const t = TrelloPowerUp.iframe();
 
-TrelloPowerUp.initialize({
-  'card-buttons': function(t, options) {
-    // restituisco un array di bottoni
-    return [{
-      icon: ICON_URL,
-      text: 'Get Info',
-      callback: function(t) {
-        // questo callback è invocato *direttamente* al click,
-        // t.popup avrà il contesto corretto e non servirà target
-        return t.popup({
-          title: 'Get Info',
-          url: 'https://vitorizzo.github.io/request-comment-trello-powerup/static/popup.html',
-          height: 200
-        });
-      }
-    }];
-  }
+function onCardButtonClick(t, opts) {
+  return t.card('id')
+    .then(({ id }) => 
+      t.popup({
+        title: 'Get Info',
+        url: 'https://vitorizzo.github.io/request-comment-trello-powerup/static/popup.html',
+        args: { cardId: id },
+        height: 200
+      })
+    );
+}
+
+window.TrelloPowerUp.initialize({
+  'card-buttons': onCardButtonClick
 });
